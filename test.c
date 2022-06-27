@@ -25,7 +25,7 @@ void help(void){
 	printf("Dieses Programm, stellt anhand der beim Programmstart, mitgegebenen Variablen die Normalverteilung nach Gauss Dar.\n");
 	printf("Optionen: \n");
 	printf("-e	Erwartungswert \n");
-	printf("-s	Standard-Abweeichung (default =1) \n");
+	printf("-s	Standardabweichung (default =1) \n");
 	printf("-a	Anzahl der zu berechneden Werte(default = min 100) \n");
 }	
 
@@ -35,7 +35,7 @@ void help(void){
 
 int main (int argc,char *argv[]){
 
-	 while((option = getopt(argc, argv, ":h:e:s:a:")) != -1) 
+	 while((option = getopt(argc, argv, "h e: s: a: ")) != -1) 
     	{
     	    switch(option) 
         	{ 
