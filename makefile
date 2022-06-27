@@ -1,5 +1,5 @@
 application: 
-	gcc-10 test.c -o test -lm
+	gcc-10 header_only_Gauss.c -o header_only_Gauss -lm
 
 staticlib:
 	gcc *PROGRAMM*.c -c
