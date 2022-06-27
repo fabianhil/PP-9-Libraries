@@ -2,20 +2,22 @@
 #include<stdlib.h>
 #include<math.h>
 
- double expected_value=50.0;
- double std_deviation=2.0;
- double amount_of_values = 0;
+ double expected_value=1.0;
+ double std_deviation=1.0;
+ double amount_of_values = 100;
  int i;
  double dist_out;
-
- #define PI (3.1415)
+ double res=0.1;
+ double start;
+ double x; 
+ const double PI = 3.1415;
 
 
 
  int main (void){
-
+	
         FILE *output_stream;
-        output_stream = fopen("output_stream", "rw"); //Read/Write
+        output_stream = fopen("output_stream.txt", "rw"); //Read/Write
 
         if (output_stream == NULL) // test for files not existing.
             		{
@@ -23,17 +25,21 @@
               		exit(-1); // must include stdlib.h
                     }
 
-        for(i=0;i<=100;i++){
-
+	start=expected_value-((amount_of_values/2.0)*res);
+	
+        x=start;
+	for(i=0;i<=amount_of_values;i++){
+		
                 //dist_out=amount_of_values;
-                dist_out = (1.0/(std_deviation*sqrt(2.0*PI)))*(exp(-1.0*((pow((amount_of_values - expected_value), 2.0))/(2.0*(pow(std_deviation, 2.0))))));
+                dist_out = (1.0/(std_deviation*sqrt(2.0*PI)))*(exp(-1.0*((pow((x - expected_value), 2.0))/(2.0*(pow(std_deviation, 2.0))))));
 
 
                 // write to file
-                fprintf(output_stream, "%f \n",dist_out); // write to file
+		fprintf(output_stream, "Wert: %f \n",dist_out); // write to file
 
                 printf("%f \n",dist_out);
-                amount_of_values=amount_of_values+1.0;
+                x=x+res;
                 }
+		fclose(output_stream);
         return 0;
 }
