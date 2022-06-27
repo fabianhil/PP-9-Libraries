@@ -1,5 +1,5 @@
-application: staticlib
-	gcc *HAUPTPROGRAMM*.c -l*PROGRAMM1* -l*PROGRAMM2*
+application: 
+	gcc-10 test.c -o test -lm
 
 staticlib:
 	gcc *PROGRAMM*.c -c

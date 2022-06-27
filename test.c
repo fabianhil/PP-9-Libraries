@@ -45,7 +45,7 @@ int main (int argc,char *argv[]){
               		printf("Error! Could not open file\n");
               		exit(-1); // must include stdlib.h
                     }
-	fprintf(output_stream,"Wert %1.12f \n",dist_out);
+
 
 	start_calc=expected_value-((amount_of_values/2.0)*res);
 	
@@ -57,7 +57,7 @@ int main (int argc,char *argv[]){
 
 
                 // write to file
-		fprintf(output_stream, "Test \n"); // write to file
+		fprintf(output_stream, "%1.12f \n",dist_out); // write to file
 
                 printf("%1.12f \n",dist_out);
                 x=x+res;
