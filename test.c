@@ -15,7 +15,7 @@
  double x; 
  const double PI = 3.141592654;
 
- int options;
+ int option;
 
 
 void help(void){
@@ -35,10 +35,30 @@ void help(void){
 
 int main (int argc,char *argv[]){
 
-	help();
-
+	 while((option = getopt(argc, argv, ":h:e:s:a:")) != -1) 
+    	{
+    	    switch(option) 
+        	{ 
+	case 'h':
+		help();
+	break;	
+	case 'e': 
+                expected_value=optarg;
+		printf("Erwartungswert: %i\n", expected_value); 
+        break; 
+        case 's': 
+               	std_deviation=optarg; 
+		printf("Standardabweichung: %i \n", std_deviation); 
+        break; 
+        case 'a': 
+                amount_of_values=optarg;
+		printf("Anzahl Werte: %i\n", amount_of_values);
+        break; 
+        }
+	}
+	
         FILE *output_stream;
-        output_stream = fopen("output_stream.txt", "rw"); //Read/Write
+        output_stream = fopen("output_stream.txt", "a+"); //Read/Write
 
         if (output_stream == NULL) // test for files not existing.
             		{
