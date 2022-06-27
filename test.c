@@ -1,21 +1,42 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
+#include<ctype.h>
+#include<unistd.h>
+//#include"help.h"
 
- double expected_value=1.0;
- double std_deviation=0.5;
- double amount_of_values = 100;
+ int expected_value=1;
+ int std_deviation=1;
+ int amount_of_values = 100;
  int i;
  double dist_out;
  double res=0.1;
- double start;
+ double start_calc;
  double x; 
  const double PI = 3.141592654;
 
+ int options;
 
 
- int main (void){
-	
+void help(void){
+
+	printf("Version 0.1 Apha \n");
+	printf("Autor: Fabian Hilbich, Camil Cieslok\n");
+	printf("Dieses Programm, stellt anhand der beim Programmstart, mitgegebenen Variablen die Normalverteilung nach Gauss Dar.\n");
+	printf("Optionen: \n");
+	printf("-e	Erwartungswert \n");
+	printf("-s	Standard-Abweeichung (default =1) \n");
+	printf("-a	Anzahl der zu berechneden Werte(default = min 100) \n");
+}	
+
+
+
+
+
+int main (int argc,char *argv[]){
+
+	help();
+
         FILE *output_stream;
         output_stream = fopen("output_stream.txt", "rw"); //Read/Write
 
@@ -24,10 +45,11 @@
               		printf("Error! Could not open file\n");
               		exit(-1); // must include stdlib.h
                     }
+	fprintf(output_stream,"Wert %1.12f \n",dist_out);
 
-	start=expected_value-((amount_of_values/2.0)*res);
+	start_calc=expected_value-((amount_of_values/2.0)*res);
 	
-        x=start;
+        x=start_calc;
 	for(i=0;i<=amount_of_values;i++){
 		
                 //dist_out=amount_of_values;
@@ -35,11 +57,13 @@
 
 
                 // write to file
-		fprintf(output_stream, "Test"); // write to file
+		fprintf(output_stream, "Test \n"); // write to file
 
                 printf("%1.12f \n",dist_out);
                 x=x+res;
-                }
-		fclose(output_stream);
-        return 0;
+	}
+		
+	fclose(output_stream);
+        
+	return 0;
 }
