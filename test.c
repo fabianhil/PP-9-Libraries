@@ -3,14 +3,14 @@
 #include<math.h>
 
  double expected_value=1.0;
- double std_deviation=1.0;
+ double std_deviation=0.5;
  double amount_of_values = 100;
  int i;
  double dist_out;
  double res=0.1;
  double start;
  double x; 
- const double PI = 3.1415;
+ const double PI = 3.141592654;
 
 
 
@@ -35,9 +35,9 @@
 
 
                 // write to file
-		fprintf(output_stream, "Wert: %f \n",dist_out); // write to file
+		fprintf(output_stream, "Test"); // write to file
 
-                printf("%f \n",dist_out);
+                printf("%1.12f \n",dist_out);
                 x=x+res;
                 }
 		fclose(output_stream);
