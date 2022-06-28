@@ -16,7 +16,7 @@
 
 void help(void){
 
-	printf("Version 0.1 Apha \n");
+	printf("Version 0.1 Alpha \n");
 	printf("Autor: Fabian Hilbich, Camil Cieslok\n");
 	printf("Dieses Programm, generiert mit Hilfe der beim Programmstart, übergebenen Variablen eine definierte Anzahl von Normalverteilten Zufallswerten nach Gauß.\n");
 	printf("Sollten Beim Progammstart keine Variablen übergeben worden sein, findet eine automatische Generierung der Zahlen mit den Default Werten statt. \n");

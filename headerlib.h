@@ -28,6 +28,6 @@ else {
 }
 rnd_number=expected_value + y1 * std_deviation;
 printf("%f \n",rnd_number);
-fprintf(output_stream, "%f \n",rnd_number);
+fprintf(output_stream, "%f\n",rnd_number);
 return;
 }
