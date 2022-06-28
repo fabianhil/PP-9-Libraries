@@ -1,8 +1,8 @@
 application_header_only: 
-	gcc-10 header_only_Gauss.c -o header_only_Gauss -lm
+	gcc-10 header_only_Gauss.c -o header_only_Gauss.elf -lm
 
 application_static: staticlib 
-	gcc-10 calc_Gauss_stdDev_expected.c -lGauss_staticlib -o calc_Gauss_stdDev_expected -lm
+	gcc-10 calc_Gauss_stdDev_expected.c -lGauss_staticlib -o calc_Gauss_stdDev_expected.elf -lm
 	
 staticlib:
 	gcc-10 Gauss_staticlib.c -c

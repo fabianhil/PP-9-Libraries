@@ -64,7 +64,7 @@ int main (int argc,char *argv[]){
                     }
 
 
-			for(i=0;i<=amount_of_values;i++){
+			for(i=0;i<=amount_of_values-1;i++){
 		
                 print_gaussian_dist(expected_value,std_deviation,amount_of_values, output_stream);
 				
