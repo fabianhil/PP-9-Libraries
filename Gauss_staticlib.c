@@ -10,12 +10,14 @@ void print_gaussian_stdDev_exp(int amount_of_values, FILE *input_stream){
 	char* end;
 	double sum=0, exp_value=0, std_Dev=0;
 	double temp=0, temp_var=0, var=0, value=0;
+	int i=0;
 		
 		//for(int i = 0; amount_of_values-1 >= i; i++){			//Berechnen des Mittelwertes/Erwartungswertes(exp value)
 			
-			while(fgets(buffer, ZEILENLAENGE, input_stream)){				
+			while(fgets(buffer, ZEILENLAENGE, input_stream)&&i<=amount_of_values-1){				
 			temp=(strtod(buffer, &end))+temp;					//Summe aller Werte
 			temp_var=(pow((strtod(buffer, &end)),2.0))+temp_var;
+			i++;
 		}
 		
 		sum=temp;
